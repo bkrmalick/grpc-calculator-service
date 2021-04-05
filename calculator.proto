@@ -1,0 +1,33 @@
+syntax= "proto3";
+
+package calculator;
+
+service Calculator{
+
+rpc add(TwoFloats) returns (Float) {}
+rpc sub(TwoFloats) returns (Float) {}
+rpc rand(TwoFloats) returns (stream Integer) {}
+rpc info(Empty) returns (CalcInfo) {}
+}
+
+message CalcInfo{
+  string name =1;
+  float upSinceInSeconds = 2;
+}
+
+message Float{
+  float n= 1;
+}
+
+message TwoFloats{
+  float first= 1;
+  float second = 2;
+}
+
+message Integer{
+  int32 n =1;
+}
+
+message Empty{
+
+}
